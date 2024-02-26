@@ -11,6 +11,12 @@ public:
 	void Update();
 	void Render();
 
+	int getX();
+	int getY();
+
+	void setX(int x);
+	void setY(int y);
+
 private:
 	int xpos;
 	int ypos;

@@ -16,6 +16,8 @@ private:
 	SDL_Texture* dirt;
 	SDL_Texture* grass;
 	SDL_Texture* water;
+	SDL_Texture* muk;
+	SDL_Texture* posoVol;
 
 	int map[20][25];
 

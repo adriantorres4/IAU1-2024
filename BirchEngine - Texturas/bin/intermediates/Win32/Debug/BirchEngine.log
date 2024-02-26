@@ -1,2 +1,8 @@
-﻿  GameObject.cpp
-  BirchEngine.vcxproj -> D:\Universidad\8vo Semestre\Inteligencia Artificial\Dev\BirchEngine - Texturas\bin\Win32\Debug\BirchEngine.exe
+﻿  Game.cpp
+D:\Universidad\8vo Semestre\Inteligencia Artificial\Dev\BirchEngine - Texturas\BirchEngine\Src\ECS.h(71,6): error C2039: "entity": no es un miembro de "PositionComponent"
+D:\Universidad\8vo Semestre\Inteligencia Artificial\Dev\BirchEngine - Texturas\BirchEngine\Src\Components.h(4,7): message : vea la declaración de 'PositionComponent'
+D:\Universidad\8vo Semestre\Inteligencia Artificial\Dev\BirchEngine - Texturas\BirchEngine\Src\Game.cpp(54,11): message : Vea la referencia a la creación de una instancia de la función plantilla "T &Entity::addComponent<PositionComponent,>(void)" que se está compilando
+          with
+          [
+              T=PositionComponent
+          ]

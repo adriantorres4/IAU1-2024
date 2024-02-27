@@ -1,20 +1,15 @@
 #include "Game.h"
 #include "TextureManager.h"
-#include "GameObject.h"
+#include "ECS/Components.h"
 #include "Map.h"
-#include "ECS.h"
-#include "Components.h"
 
-GameObject* player;
-GameObject* pikachu;
-GameObject* col1;
-GameObject* col2;
+
 Map* map;
 
 SDL_Renderer* Game::renderer = nullptr;
 
 Manager manager;
-auto& newPlayer(manager.addEntity());
+auto& player(manager.addEntity());
 
 Game::Game()
 {}
@@ -44,15 +39,10 @@ void Game::init(const char* title, int width, int height, bool fullscreen)
 		isRunning = true;
 	}
 
-	
-	player = new GameObject("assets/player.png", 0, 0);
-	pikachu = new GameObject("assets/pikachu_2.png", 50, 50);
-	col1 = new GameObject("assets/coleccionable1.png", 100, 100);
-	col2 = new GameObject("assets/coleccionable2.png", 150, 150);
-
 	map = new Map();
-	newPlayer.addComponent<PositionComponent>();
-
+	//ecs implementacion
+	player.addComponent<PositionComponent>(100,500);
+	player.addComponent<SpriteComponent>("assets/pikachu_0.png");
 
 }
 //---------------------------------------------------------------------------
@@ -68,23 +58,23 @@ void Game::handleEvents()
 		isRunning = false;
 		break;
 	case SDL_KEYDOWN:
-		switch (event.key.keysym.sym) 
+		/*switch (event.key.keysym.sym)
 		{
 		case SDLK_w:
-			player->setY(player->getY() - 10);// Move up
+			pikachu->setY(player->getY() - 10);// Move up
 			break;
 		case SDLK_s:
-			player->setY(player->getY() + 10); // Move down
+			pikachu->setY(player->getY() + 10); // Move down
 			break;
 		case SDLK_a:
-			player->setX(player->getX() - 10); // Move left
+			pikachu->setX(player->getX() - 10); // Move left
 			break;
 		case SDLK_d:
-			player->setX(player->getX() + 10); // Move right
+			pikachu->setX(player->getX() + 10); // Move right
 			break;
 		default:
 			break;
-		}
+		}*/
 		break;
 	default:
 		break;
@@ -93,24 +83,21 @@ void Game::handleEvents()
 //---------------------------------------------------------------------------
 void Game::update()
 {
-	player->Update();
-	pikachu->Update();
-	col1->Update();
-	col2->Update();
-	
 	manager.update();
-	std::cout << newPlayer.getComponent<PositionComponent>().x() << ", " << newPlayer.getComponent<PositionComponent>().y() << std::endl;
+	manager.refresh();
+
+	if (player.getComponent<PositionComponent>().x() > 100)
+	{
+		player.getComponent<SpriteComponent>().setTex("assets/player.png");
+	}
+
 }
 //---------------------------------------------------------------------------
 void Game::render()
 {
 	SDL_RenderClear(renderer);
 	map->DrawMap();
-
-	player->Render();
-	pikachu->Render();
-	col1->Render();
-	col2->Render();
+	manager.draw();
 	SDL_RenderPresent(renderer);
 
 }

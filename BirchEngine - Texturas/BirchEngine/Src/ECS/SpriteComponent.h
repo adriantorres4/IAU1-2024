@@ -1,11 +1,12 @@
 #pragma once
 #include "Components.h"
 #include "SDL.h"
+#include "../TextureManager.h"
 
 class SpriteComponent : public Component
 {
 private:
-	TransformComponent* position;
+	TransformComponent* transform;
 	SDL_Texture* texture;
 	SDL_Rect srcRect, destRect;
 
@@ -16,6 +17,11 @@ public:
 		setTex(path);
 	}
 
+	~SpriteComponent()
+	{
+		SDL_DestroyTexture(texture);
+	}
+
 	void setTex(const char* path)
 	{
 		texture = TextureManager::LoadTexture(path);
@@ -23,16 +29,20 @@ public:
 
 	void init() override
 	{
-		position = &entity->getComponent<TransformComponent>();
+		transform = &entity->getComponent<TransformComponent>();
+
 		srcRect.x = srcRect.y = 0;
-		srcRect.w = srcRect.h = 32;
-		destRect.w = destRect.h = 64;
+		srcRect.w = transform->width;
+		srcRect.h = transform->heigth;
 	}
 
 	void update() override
 	{
-		destRect.x = position->x();
-		destRect.y = position->y();
+		destRect.x = static_cast <int> (transform->position.x);
+		destRect.y = static_cast <int> (transform->position.y);
+		destRect.w = transform->width * transform->scale;
+		destRect.h = transform->heigth * transform->scale;
+
 	}
 
 	void draw() override

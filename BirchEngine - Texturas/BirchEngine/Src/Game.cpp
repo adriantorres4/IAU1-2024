@@ -2,14 +2,20 @@
 #include "TextureManager.h"
 #include "ECS/Components.h"
 #include "Map.h"
-
+#include "Vector2D.h"
+#include "Collision.h"
 
 Map* map;
+Manager manager;
 
 SDL_Renderer* Game::renderer = nullptr;
+SDL_Event Game::event;
 
-Manager manager;
+std::vector<ColliderComponent*> Game::colliders;
+
 auto& player(manager.addEntity());
+auto& wall(manager.addEntity());
+
 
 Game::Game()
 {}
@@ -41,14 +47,21 @@ void Game::init(const char* title, int width, int height, bool fullscreen)
 
 	map = new Map();
 	//ecs implementacion
-	player.addComponent<PositionComponent>(100,500);
-	player.addComponent<SpriteComponent>("assets/pikachu_0.png");
+	Map::LoadMap("assets/")
 
+	player.addComponent<TransformComponent>(2);
+	player.addComponent<SpriteComponent>("assets/pikachu_0.png");
+	player.addComponent<KeyBoardController>();
+	player.addComponent<ColliderComponent>("player");
+
+	wall.addComponent<TransformComponent>(300.f, 300.0f, 40, 20, 1);
+	wall.addComponent<SpriteComponent>("assets/poso_de_Voltorbs.gif");
+	wall.addComponent<ColliderComponent>("wall");
 }
 //---------------------------------------------------------------------------
 void Game::handleEvents()
 {
-	SDL_Event event;
+	
 
 	SDL_PollEvent(&event);
 
@@ -56,25 +69,6 @@ void Game::handleEvents()
 	{
 	case SDL_QUIT :
 		isRunning = false;
-		break;
-	case SDL_KEYDOWN:
-		/*switch (event.key.keysym.sym)
-		{
-		case SDLK_w:
-			pikachu->setY(player->getY() - 10);// Move up
-			break;
-		case SDLK_s:
-			pikachu->setY(player->getY() + 10); // Move down
-			break;
-		case SDLK_a:
-			pikachu->setX(player->getX() - 10); // Move left
-			break;
-		case SDLK_d:
-			pikachu->setX(player->getX() + 10); // Move right
-			break;
-		default:
-			break;
-		}*/
 		break;
 	default:
 		break;
@@ -85,10 +79,10 @@ void Game::update()
 {
 	manager.update();
 	manager.refresh();
-
-	if (player.getComponent<PositionComponent>().x() > 100)
+	for (auto cc : colliders)
 	{
-		player.getComponent<SpriteComponent>().setTex("assets/player.png");
+		Collision::AABB(player.getComponent<ColliderComponent>(), *cc);
+		
 	}
 
 }
@@ -96,7 +90,6 @@ void Game::update()
 void Game::render()
 {
 	SDL_RenderClear(renderer);
-	map->DrawMap();
 	manager.draw();
 	SDL_RenderPresent(renderer);
 
@@ -107,4 +100,10 @@ void Game::clean()
 	SDL_DestroyWindow(window);
 	SDL_DestroyRenderer(renderer);
 	SDL_Quit();
+}
+
+void Game::addTile(int id, int x, int y)
+{
+	auto& tile(manager.addEntity());
+	tile.addComponent<TileComponent>(x, y, 32, 32, id);
 }

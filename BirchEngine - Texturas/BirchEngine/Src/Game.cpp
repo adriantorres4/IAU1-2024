@@ -16,6 +16,14 @@ std::vector<ColliderComponent*> Game::colliders;
 auto& player(manager.addEntity());
 auto& wall(manager.addEntity());
 
+enum groupLabel : std::size_t 
+{
+	groupMap,
+	groupPlayers,
+	groupEnemies,
+	groupColliders
+};
+
 
 Game::Game()
 {}
@@ -53,10 +61,13 @@ void Game::init(const char* title, int width, int height, bool fullscreen)
 	player.addComponent<SpriteComponent>("assets/pikachu_0.png");
 	player.addComponent<KeyBoardController>();
 	player.addComponent<ColliderComponent>("player");
+	player.addGroup(groupPlayers);
+
 
 	wall.addComponent<TransformComponent>(300.f, 300.0f, 40, 20, 1);
 	wall.addComponent<SpriteComponent>("assets/poso_de_Voltorbs.gif");
 	wall.addComponent<ColliderComponent>("wall");
+	wall.addGroup(groupMap);
 }
 //---------------------------------------------------------------------------
 void Game::handleEvents()
@@ -87,10 +98,30 @@ void Game::update()
 
 }
 //---------------------------------------------------------------------------
+auto& tiles(manager.getGroup(groupMap));
+auto& players(manager.getGroup(groupPlayers));
+auto& enemies(manager.getGroup(groupEnemies));
+
+//---------------------------------------------------------------------------
 void Game::render()
 {
 	SDL_RenderClear(renderer);
-	manager.draw();
+
+	for (auto& t : tiles)
+	{
+		t->draw();
+	}
+
+	for (auto& p : players)
+	{
+		p->draw();
+	}
+
+	for (auto& e : enemies)
+	{
+		e->draw();
+	}
+
 	SDL_RenderPresent(renderer);
 
 }
@@ -106,4 +137,5 @@ void Game::addTile(int id, int x, int y)
 {
 	auto& tile(manager.addEntity());
 	tile.addComponent<TileComponent>(x, y, 32, 32, id);
+	tile.addGroup(groupMap);
 }

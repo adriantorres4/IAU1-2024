@@ -72,8 +72,8 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <OutDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)bin\intermediates\$(Platform)\$(Configuration)\</IntDir>
-    <IncludePath>D:\Universidad\8vo Semestre\Inteligencia Artificial\Dev\SDL2_image-2.0.1\include;D:\Universidad\8vo Semestre\Inteligencia Artificial\Dev\SDL2\include;$(IncludePath)</IncludePath>
-    <LibraryPath>D:\Universidad\8vo Semestre\Inteligencia Artificial\Dev\SDL2_image-2.0.1\lib\x86;D:\Universidad\8vo Semestre\Inteligencia Artificial\Dev\SDL2\lib\x86;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Users\RzSad\OneDrive\Documentos\Proyectos\IAU1-2024\SDL2_image-2.0.1\include;C:\Users\RzSad\OneDrive\Documentos\Proyectos\IAU1-2024\SDL2\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\RzSad\OneDrive\Documentos\Proyectos\IAU1-2024\SDL2_image-2.0.1\lib\x86;C:\Users\RzSad\OneDrive\Documentos\Proyectos\IAU1-2024\SDL2\lib\x86;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <OutDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\</OutDir>
@@ -100,10 +100,11 @@
       <AdditionalIncludeDirectories>D:\Universidad\8vo Semestre\Inteligencia Artificial\Dev\SDL2_image-2.0.1\include;D:\Universidad\8vo Semestre\Inteligencia Artificial\Dev\SDL2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>D:\Universidad\8vo Semestre\Inteligencia Artificial\Dev\SDL2_image-2.0.1\lib\x86;D:\Universidad\8vo Semestre\Inteligencia Artificial\Dev\SDL2\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\Users\RzSad\OneDrive\Documentos\Proyectos\IAU1-2024\SDL2_image-2.0.1\lib\x86;C:\Users\RzSad\OneDrive\Documentos\Proyectos\IAU1-2024\SDL2\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <SubSystem>Console</SubSystem>
       <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <ProjectReference />
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>

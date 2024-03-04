@@ -1,2 +1,38 @@
+# Archivos de configuración específicos de Visual Studio
+.vs/
+.vscode/
+*.suo
+*.user
+*.sln.docstates
 
-BirchEngine - Texturas/.vs/
+# Carpeta de salida de compilación
+bin/
+obj/
+
+# Carpeta de paquetes NuGet
+packages/
+
+# Carpeta de dependencias
+dependencies/
+
+# Archivos de configuración de usuario generados
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Archivos de caché y respaldo
+*.log
+*.cache
+*.bak
+*.swp
+
+# Otros archivos y carpetas generados por Visual Studio
+[Tt]humbs.db
+*.dbmdl
+*.dbproj.schemaview
+*.pfx
+*.publishsettings
+node_modules/
+bower_components/

@@ -1,5 +1,7 @@
 #pragma once
 #include <string>
+#include <list>
+
 
 
 class Map
@@ -9,6 +11,7 @@ public:
 	~Map();
 
 	static void LoadMap(std::string path,int sizeX, int sizeY);
+	
 
 private:
 	

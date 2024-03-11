@@ -1,0 +1,190 @@
+{
+  "version": "2.1.0",
+  "$schema": "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0-rtm.5.json",
+  "runs": [
+    {
+      "results": [
+        {
+          "ruleId": "C26495",
+          "message": {
+            "text": "La variable \"Nodo::x\" no está inicializada. Siempre debe inicializarse una variable miembro (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/RzSad/OneDrive/Documentos/Proyectos/IAU1-2024/BirchEngine - Texturas/BirchEngine/Src/Nodo.cpp"
+                },
+                "region": {
+                  "startLine": 12,
+                  "startColumn": 7
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "Nodo::{ctor}",
+                  "decoratedName": "??0Nodo@@QAE@XZ",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "targetSymbol": "Nodo::x"
+          }
+        },
+        {
+          "ruleId": "C26495",
+          "message": {
+            "text": "La variable \"Nodo::y\" no está inicializada. Siempre debe inicializarse una variable miembro (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/RzSad/OneDrive/Documentos/Proyectos/IAU1-2024/BirchEngine - Texturas/BirchEngine/Src/Nodo.cpp"
+                },
+                "region": {
+                  "startLine": 12,
+                  "startColumn": 7
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "Nodo::{ctor}",
+                  "decoratedName": "??0Nodo@@QAE@XZ",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "targetSymbol": "Nodo::y"
+          }
+        },
+        {
+          "ruleId": "C26495",
+          "message": {
+            "text": "La variable \"Nodo::tipo_casilla\" no está inicializada. Siempre debe inicializarse una variable miembro (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/RzSad/OneDrive/Documentos/Proyectos/IAU1-2024/BirchEngine - Texturas/BirchEngine/Src/Nodo.cpp"
+                },
+                "region": {
+                  "startLine": 12,
+                  "startColumn": 7
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "Nodo::{ctor}",
+                  "decoratedName": "??0Nodo@@QAE@XZ",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "targetSymbol": "Nodo::tipo_casilla"
+          }
+        },
+        {
+          "ruleId": "C26495",
+          "message": {
+            "text": "La variable \"Nodo::valor_casilla\" no está inicializada. Siempre debe inicializarse una variable miembro (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/RzSad/OneDrive/Documentos/Proyectos/IAU1-2024/BirchEngine - Texturas/BirchEngine/Src/Nodo.cpp"
+                },
+                "region": {
+                  "startLine": 12,
+                  "startColumn": 7
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "Nodo::{ctor}",
+                  "decoratedName": "??0Nodo@@QAE@XZ",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "targetSymbol": "Nodo::valor_casilla"
+          }
+        },
+        {
+          "ruleId": "C26495",
+          "message": {
+            "text": "La variable \"Nodo::visitado\" no está inicializada. Siempre debe inicializarse una variable miembro (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/RzSad/OneDrive/Documentos/Proyectos/IAU1-2024/BirchEngine - Texturas/BirchEngine/Src/Nodo.cpp"
+                },
+                "region": {
+                  "startLine": 12,
+                  "startColumn": 7
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "Nodo::{ctor}",
+                  "decoratedName": "??0Nodo@@QAE@XZ",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "targetSymbol": "Nodo::visitado"
+          }
+        }
+      ],
+      "tool": {
+        "driver": {
+          "name": "PREfast",
+          "fullName": "PREfast Code Analysis",
+          "version": "14.38.33135.0",
+          "informationUri": "https://aka.ms/cpp/ca"
+        }
+      },
+      "invocations": [
+        {
+          "executionSuccessful": true
+        }
+      ],
+      "artifacts": [
+        {
+          "location": {
+            "uri": "file:///C:/Users/RzSad/OneDrive/Documentos/Proyectos/IAU1-2024/BirchEngine - Texturas/BirchEngine/Src/Nodo.cpp"
+          },
+          "roles": [
+            "analysisTarget",
+            "resultFile"
+          ],
+          "hashes": {
+            "sha-256": "226478c1aeba0abd7d24c47d89e30dea4a07f41effdd399ab4c541efb2c6ff30"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/rzsad/onedrive/documentos/proyectos/iau1-2024/birchengine - texturas/birchengine/src/nodo.h"
+          },
+          "hashes": {
+            "sha-256": "3eab34ffdf2b98c24a1b0e851a9b36f950e6b1a6029e83897bf6823f5daa1de2"
+          }
+        }
+      ]
+    }
+  ]
+}

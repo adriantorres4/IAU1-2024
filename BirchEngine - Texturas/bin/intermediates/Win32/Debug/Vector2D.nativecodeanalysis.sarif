@@ -1,0 +1,43 @@
+{
+  "version": "2.1.0",
+  "$schema": "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0-rtm.5.json",
+  "runs": [
+    {
+      "results": [],
+      "tool": {
+        "driver": {
+          "name": "PREfast",
+          "fullName": "PREfast Code Analysis",
+          "version": "14.38.33135.0",
+          "informationUri": "https://aka.ms/cpp/ca"
+        }
+      },
+      "invocations": [
+        {
+          "executionSuccessful": true
+        }
+      ],
+      "artifacts": [
+        {
+          "location": {
+            "uri": "file:///c:/users/rzsad/onedrive/documentos/proyectos/iau1-2024/birchengine - texturas/birchengine/src/vector2d.cpp"
+          },
+          "roles": [
+            "analysisTarget"
+          ],
+          "hashes": {
+            "sha-256": "993e87d058a51f1b5d029c3fb18a2e683a0a22cb6274de4f36c42d1976f6ed46"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/rzsad/onedrive/documentos/proyectos/iau1-2024/birchengine - texturas/birchengine/src/vector2d.h"
+          },
+          "hashes": {
+            "sha-256": "88ea7e50a38e8f4b5435ef63a7c5216d41673ac224277557cc2f26620eabe207"
+          }
+        }
+      ]
+    }
+  ]
+}

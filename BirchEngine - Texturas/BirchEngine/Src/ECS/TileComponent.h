@@ -5,8 +5,10 @@
 #include "SpriteComponent.h"
 #include "SDL.h"
 
+
 class TileComponent : public Component
 {
+	
 public:
 	TransformComponent* transform;
 	SpriteComponent* sprite;
@@ -24,7 +26,9 @@ public:
 		tileRect.w = w;
 		tileRect.h = h;
 		tileID = id;
-
+		
+		
+		
 		switch (tileID)
 		{
 		case 0: 

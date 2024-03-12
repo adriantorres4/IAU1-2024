@@ -55,7 +55,7 @@ void Game::init(const char* title, int width, int height, bool fullscreen)
 
 	map = new Map();
 	//ecs implementacion
-	Map::LoadMap("assets/map.map", 32, 32);
+	Map::LoadMap("assets/map.map", 16, 16);
 
 	player.addComponent<TransformComponent>(2);
 	player.addComponent<SpriteComponent>("assets/pikachu_0.png");

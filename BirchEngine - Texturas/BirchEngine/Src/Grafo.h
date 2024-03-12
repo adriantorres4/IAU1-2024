@@ -11,7 +11,7 @@ public:
 
     Nodo buscarNodo(int x, int y);
 
-    vector<Nodo> algoritmoProfundidad(Nodo nodo_origen, Nodo nodo_destino);
+    vector<Nodo> algoritmoProfundidad(Nodo nodo_origen, Nodo nodo_destino, Grafo grafoAuxiliar);
 
 private:
     vector<Nodo> nodos;

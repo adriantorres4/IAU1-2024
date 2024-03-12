@@ -26,3 +26,4 @@ vector<Nodo> Nodo::getAdyacentes() { return adyacentes; }
 void Nodo::setVisitado(bool visitado) { this->visitado = visitado; }
 
 void Nodo::agregarAdyacente(Nodo nodo) { adyacentes.push_back(nodo); }
+

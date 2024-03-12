@@ -19,29 +19,42 @@ Nodo Grafo::buscarNodo(int x, int y) {
     return Nodo();
 }
 
-vector<Nodo> Grafo::algoritmoProfundidad(Nodo nodo_origen, Nodo nodo_destino) {
-    std::stack<Nodo> pila;
+vector<Nodo> Grafo::algoritmoProfundidad(Nodo nodo_origen, Nodo nodo_destino, Grafo grafoAuxiliar) {
+    stack<Nodo> pila;
     vector<Nodo> camino;
-
-    pila.push(nodo_origen);
+    Nodo nodo_actual;
     nodo_origen.setVisitado(true);
+    
+    pila.push(nodo_origen);
+    
     camino.push_back(nodo_origen);
 
     while (!pila.empty()) {
-        Nodo nodo_actual = pila.top();
+        nodo_actual = pila.top();
+        nodo_actual.setVisitado(true);
         pila.pop();
 
         if (nodo_actual.getValorCasilla() == nodo_destino.getValorCasilla()) {
             return camino;
         }
-
-        for (Nodo nodo_adyacente : nodo_actual.getAdyacentes()) {
+        Nodo nodo_adyacente;
+        for (int i = 0; i < nodo_actual.getAdyacentes().size();i++) {
+            nodo_adyacente.copia(this->buscarNodo(nodo_actual.getAdyacentes().at(i).getX(), nodo_actual.getAdyacentes().at(i).getY()));
             if (!nodo_adyacente.isVisitado()) {
-                pila.push(nodo_adyacente);
+                this->buscarNodo(nodo_actual.getAdyacentes().at(i).getX(), nodo_actual.getAdyacentes().at(i).getY()).setVisitado(true);
                 nodo_adyacente.setVisitado(true);
+                pila.push(nodo_adyacente);
                 camino.push_back(nodo_adyacente);
             }
         }
+       /* for (Nodo nodo_adyacente : nodo_actual.getAdyacentes()) {
+            if (!nodo_adyacente.isVisitado()) {
+                nodo_adyacente.setVisitado(true);
+                pila.push(nodo_adyacente);
+                this->buscarNodo(pila.top().getX(), pila.top().getY()).setVisitado(true);
+                camino.push_back(nodo_adyacente);
+            }
+        }*/
     }
 
     return vector<Nodo>();

@@ -1,5 +1,3 @@
-#pragma once
-
 #include "ECS.h"
 #include "TransformComponent.h"
 #include "SpriteComponent.h"
@@ -26,9 +24,7 @@ public:
 		tileRect.w = w;
 		tileRect.h = h;
 		tileID = id;
-		
-		
-		
+
 		switch (tileID)
 		{
 		case 0: 

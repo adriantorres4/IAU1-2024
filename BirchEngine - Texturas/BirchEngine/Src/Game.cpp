@@ -1,7 +1,7 @@
 #include "Game.h"
 #include "TextureManager.h"
 #include "ECS/Components.h"
-#include "Map.h"
+//#include "Map.h"
 #include "Vector2D.h"
 #include "Collision.h"
 
@@ -55,14 +55,15 @@ void Game::init(const char* title, int width, int height, bool fullscreen)
 
 	map = new Map();
 	//ecs implementacion
-	Map::LoadMap("assets/map.map", 16, 16);
+	
+	this->camino = Map::LoadMap("assets/map.map", 32, 32);
 
 	player.addComponent<TransformComponent>(2);
 	player.addComponent<SpriteComponent>("assets/pikachu_0.png");
-	player.addComponent<KeyBoardController>();
+	player.addComponent<KeyBoardController>(this->camino);
 	player.addComponent<ColliderComponent>("player");
 	player.addGroup(groupPlayers);
-
+	
 
 	wall.addComponent<TransformComponent>(300.f, 300.0f, 40, 20, 1);
 	wall.addComponent<SpriteComponent>("assets/poso_de_Voltorbs.gif");
@@ -139,3 +140,7 @@ void Game::addTile(int id, int x, int y)
 	tile.addComponent<TileComponent>(x, y, 32, 32, id);
 	tile.addGroup(groupMap);
 }
+
+//vector<Nodo*> Game::getCamino() {
+//	return camino;
+//}

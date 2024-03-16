@@ -4,7 +4,9 @@
 #include "SDL_image.h"
 #include <iostream>
 #include <vector>
-
+#include "Map.h"
+//#include "Grafo.h"
+//#include "Nodo.h"
 class ColliderComponent;
 
 class Game
@@ -20,15 +22,16 @@ public:
 	bool running() { return isRunning; }
 	void render();
 	void clean();
-
+	//static vector<Nodo*> getCamino();
 	static void addTile(int id, int x, int y);
 	static SDL_Renderer *renderer;
 	static SDL_Event event;
 	static std::vector<ColliderComponent*> colliders;
-
+	vector<Nodo*>camino;
 private:
 	bool isRunning = false;
 	int cnt = 0;
 	SDL_Window *window;
+	
 
 };

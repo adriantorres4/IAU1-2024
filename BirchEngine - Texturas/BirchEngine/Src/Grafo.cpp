@@ -6,56 +6,60 @@ using namespace std;
 //#include "Nodo.h"
 Grafo::Grafo() {}
 
-void Grafo::agregarNodo(Nodo nodo) {
+void Grafo::agregarNodo(Nodo* nodo) {
     nodos.push_back(nodo);
 }
 
-Nodo Grafo::buscarNodo(int x, int y) {
-    for (Nodo nodo : nodos) {
-        if (nodo.getX() == x && nodo.getY() == y) {
+Nodo* Grafo::buscarNodo(int x, int y) {
+    for (Nodo* nodo : nodos) {
+        if (nodo->getX() == x && nodo->getY() == y) {
             return nodo;
         }
     }
-    return Nodo();
+    return nullptr;
 }
 
-vector<Nodo> Grafo::algoritmoProfundidad(Nodo nodo_origen, Nodo nodo_destino, Grafo grafoAuxiliar) {
-    stack<Nodo> pila;
-    vector<Nodo> camino;
-    Nodo nodo_actual;
-    nodo_origen.setVisitado(true);
-    
+vector<Nodo*> Grafo::algoritmoProfundidad(Nodo* nodo_origen, Nodo* nodo_destino) {
+    std::stack<Nodo*> pila;
+    vector<Nodo*> camino;
+
     pila.push(nodo_origen);
-    
+    nodo_origen->setVisitado(true);
     camino.push_back(nodo_origen);
 
     while (!pila.empty()) {
-        nodo_actual = pila.top();
-        nodo_actual.setVisitado(true);
+        Nodo* nodo_actual = pila.top();
         pila.pop();
 
-        if (nodo_actual.getValorCasilla() == nodo_destino.getValorCasilla()) {
+        if (nodo_actual == nodo_destino) {
             return camino;
         }
-        Nodo nodo_adyacente;
-        for (int i = 0; i < nodo_actual.getAdyacentes().size();i++) {
-            nodo_adyacente.copia(this->buscarNodo(nodo_actual.getAdyacentes().at(i).getX(), nodo_actual.getAdyacentes().at(i).getY()));
-            if (!nodo_adyacente.isVisitado()) {
-                this->buscarNodo(nodo_actual.getAdyacentes().at(i).getX(), nodo_actual.getAdyacentes().at(i).getY()).setVisitado(true);
-                nodo_adyacente.setVisitado(true);
+        /*for (int i = 0; i < camino.size();i++) {
+            if (camino.at(i) == nodo_destino)
+                return camino;
+        }*/
+        for (int i = 0; i < nodo_actual->getAdyacentes().size();i++) {
+            Nodo* nodo_adyacente = nodo_actual->getAdyacentes().at(i);
+            if (!nodo_adyacente->isVisitado()) {
                 pila.push(nodo_adyacente);
+               // this->buscarNodo(nodo_actual.getAdyacentes().at(i).getX(), nodo_actual.getAdyacentes().at(i).getY()).setVisitado(true);
+                nodo_adyacente->setVisitado(true);
+                //pila.push(nodo_adyacente);
                 camino.push_back(nodo_adyacente);
+                if (nodo_adyacente == nodo_destino) {
+                    return camino;
+                }
             }
         }
-       /* for (Nodo nodo_adyacente : nodo_actual.getAdyacentes()) {
-            if (!nodo_adyacente.isVisitado()) {
-                nodo_adyacente.setVisitado(true);
+        /*for (Nodo* nodo_adyacente : nodo_actual->getAdyacentes()) {
+            if (!nodo_adyacente->isVisitado()) {
                 pila.push(nodo_adyacente);
-                this->buscarNodo(pila.top().getX(), pila.top().getY()).setVisitado(true);
+                nodo_adyacente->setVisitado(true);
                 camino.push_back(nodo_adyacente);
             }
         }*/
     }
 
-    return vector<Nodo>();
+
+    return vector<Nodo*>();
 }

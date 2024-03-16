@@ -7,10 +7,9 @@ Nodo::Nodo(int x, int y, int tipo_casilla, int valor_casilla) {
     this->tipo_casilla = tipo_casilla;
     this->valor_casilla = valor_casilla;
     this->visitado = false;
-    this->adyacentes = vector<Nodo>();
+    this->adyacentes = vector<Nodo*>();
 }
-Nodo::Nodo(){}
-
+Nodo::Nodo() {};
 int Nodo::getX() const { return x; }
 
 int Nodo::getY() const { return y; }
@@ -19,11 +18,11 @@ int Nodo::getTipoCasilla() const { return tipo_casilla; }
 
 int Nodo::getValorCasilla() const { return valor_casilla; }
 
-bool Nodo::isVisitado() const { return visitado; }
+vector<Nodo*> Nodo::getAdyacentes() { return adyacentes; }
 
-vector<Nodo> Nodo::getAdyacentes() { return adyacentes; }
+bool Nodo::isVisitado() const { return visitado; }
 
 void Nodo::setVisitado(bool visitado) { this->visitado = visitado; }
 
-void Nodo::agregarAdyacente(Nodo nodo) { adyacentes.push_back(nodo); }
+void Nodo::agregarAdyacente(Nodo* nodo) { adyacentes.push_back(nodo); }
 

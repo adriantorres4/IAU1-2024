@@ -1,5 +1,7 @@
 #include "Game.h"
 #include <iostream>
+#include <thread>
+#include <chrono>
 using namespace std;
 
 Game *game = nullptr;
@@ -18,11 +20,12 @@ int main(int argc, char *argv[])
 	while (game->running())
 	{
 		frameStart = SDL_GetTicks();
-
+		
 		game->handleEvents();
 		game->update();
+		//std::this_thread::sleep_for(std::chrono::milliseconds(100));
 		game->render();
- 
+		
 		frameTime = SDL_GetTicks() - frameStart;
 
 		if (frameDelay > frameTime)

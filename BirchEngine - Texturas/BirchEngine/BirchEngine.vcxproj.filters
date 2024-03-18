@@ -48,6 +48,9 @@
     <ClCompile Include="Src\Nodo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="AEstrella.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Src\Game.h">
@@ -90,6 +93,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Src\Nodo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AEstrella.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

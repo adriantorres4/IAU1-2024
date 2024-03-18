@@ -5,7 +5,7 @@
 #include <vector>
 #include <functional>
 #include <set>
-class AEstrella
+namespace AEstrella
 {
     struct Vec2i
     {
@@ -25,6 +25,7 @@ class AEstrella
     {
         uint G, H;
         Vec2i coordinates;
+        int tipoCasilla;
         Node* parent;
 
         Node(Vec2i coord_, Node* parent_ = nullptr);
@@ -68,3 +69,4 @@ class AEstrella
 
 };
 
+#endif // __ASTAR_HPP_8F637DB91972F6C878D41D63F7E7214F__

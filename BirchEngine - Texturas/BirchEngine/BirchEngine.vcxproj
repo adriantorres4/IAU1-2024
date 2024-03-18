@@ -151,6 +151,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AEstrella.cpp" />
     <ClCompile Include="Src\Nodo.cpp" />
     <ClCompile Include="Src\Grafo.cpp" />
     <ClCompile Include="Src\Collision.cpp" />
@@ -164,6 +165,7 @@
     <ClCompile Include="Src\Vector2D.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AEstrella.h" />
     <ClInclude Include="Src\Nodo.h" />
     <ClInclude Include="Src\Grafo.h" />
     <ClInclude Include="Src\Collision.h" />

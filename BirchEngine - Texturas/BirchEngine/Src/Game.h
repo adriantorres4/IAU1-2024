@@ -27,7 +27,8 @@ public:
 	static SDL_Renderer *renderer;
 	static SDL_Event event;
 	static std::vector<ColliderComponent*> colliders;
-	vector<Nodo*>camino;
+	AEstrella::CoordinateList camino;
+	AEstrella::CoordinateList nodosColeccionables;
 private:
 	bool isRunning = false;
 	int cnt = 0;

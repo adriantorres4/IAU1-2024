@@ -36,6 +36,30 @@ public:
 		case 2:
 			path = "assets/grass.png";
 			break;
+		case 3:
+			path = "assets/coleccionable1.png";
+			break;
+		case 4:
+			path = "assets/coleccionable4.png";
+			break;
+		case 5:
+			path = "assets/coleccionable5.png";
+			break;
+		case 6:
+			path = "assets/snorlax-pasto.png";
+			break;
+		case 7:
+			path = "assets/snorlax-dirt.png";
+			break;
+		case 8:
+			path = "assets/arbol-pasto.png";
+			break;
+		case 9:
+			path = "assets/arbol-dirt.png";
+			break;
+		case 10:
+			path = "assets/coleccionable2.png";
+			break;
 		default:
 			break;
 		}
